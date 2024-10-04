@@ -10,10 +10,10 @@ def create_dir(path):
 
 
 def tf_load_image(foldername, timestep):
-    file = tf.string_join([foldername, '/', tf.as_string(timestep), '.gif'])
-    return tf.image.decode_gif(tf.read_file(file))[0]
+    file = tf.strings.join([foldername, "/", tf.strings.as_string(timestep), ".gif"])
+    return tf.image.decode_gif(tf.io.read_file(file))[0]
 
 
 def preprocess(img):
     # In range [-1, 1]
-    return ((tf.cast(img, tf.float32) / 255.) * 2.) - 1.
+    return ((tf.cast(img, tf.float32) / 255.0) * 2.0) - 1.0
